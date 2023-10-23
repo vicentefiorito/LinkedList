@@ -8,15 +8,25 @@ const Node = (value,nextNode) => {
 // Linked List function implementation
 const LinkedList = (list) => {
     // append --> adds node to the end of the list
-    const append = (node) => {
-            list.push(node)
+    const append = (value) => {
+            list.push(value)
             console.log(list)
     }
 
-    // prepend --> adds node to the beginnig of the list
-    const prepend = (node) => {
-            list.unshift(node)
+    // prepend --> adds value to the beginnig of the list
+    const prepend = (value) => {
+            list.unshift(value)
             console.log(list)
+    }
+
+    // at --> returns the node at a given index
+    const at = (index) => {
+        // if the index is out of bounds of the current list
+        if(index >= list.length) {
+            console.log('Index is out of bounds of the array')
+        } else {
+            console.log(list[index])
+        }
     }
 
     // pop --> removes the last element of the list
@@ -26,17 +36,17 @@ const LinkedList = (list) => {
     }
 
     // contains --> returns true if the passed value is in the list
-    const contains = (node) => {
-        if(list.includes(node)) {
-            console.log('Node: ' + node + ' is in the list')
+    const contains = (value) => {
+        if(list.includes(value)) {
+            console.log('Node: ' + value + ' is in the list')
             return true
         } else {
-            console.log('Node: ' + node + ' is not in the list')
+            console.log('Node: ' + value + ' is not in the list')
             return false
         }
     }
 
-    return {append,prepend,contains,pop}
+    return {append,prepend,contains,pop,at}
 }
 
 // testing
@@ -55,6 +65,7 @@ linkedList1.append(node1.value) // [3,5,6,4]
 linkedList1.prepend(node2.value) // [8,3,5,6,4]
 linkedList1.contains(5) // Should return true
 linkedList1.pop() // [8,3,5,6]
+linkedList1.at(4)
 
 
 
