@@ -9,27 +9,26 @@ const Node = (value,nextNode) => {
 const LinkedList = (list) => {
     // append --> adds node to the end of the list
     const append = (node) => {
-        // if the node is already in the list
-        if(list.includes(node)) {
-            console.log('Value you are trying to append is on the list already')
-            return
-        } else {
             list.push(node)
-        }
     }
 
     // prepend --> adds node to the beginnig of the list
     const prepend = (node) => {
-         // if the node is already in the list
-         if(list.includes(node)) {
-            console.log('Value you are trying to prepend is on the list already')
-            return
-         } else {
             list.unshift(node)
-         }
     }
 
-    return {append,prepend}
+    // contains --> returns true if the passed value is in the list
+    const contains = (node) => {
+        if(list.includes(node)) {
+            console.log('Node: ' + node + ' is in the list')
+            return true
+        } else {
+            console.log('Node: ' + node + ' is not in the list')
+            return false
+        }
+    }
+
+    return {append,prepend,contains}
 }
 
 // testing
@@ -48,6 +47,7 @@ linkedList1.append(node1.value) // [3,5,6,4]
 console.log(list1)
 linkedList1.prepend(node2.value) // [8,3,5,6,4]
 console.log(list1)
+linkedList1.contains(5) // Should return true
 
 
 
