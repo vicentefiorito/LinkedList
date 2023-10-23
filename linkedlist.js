@@ -10,11 +10,19 @@ const LinkedList = (list) => {
     // append --> adds node to the end of the list
     const append = (node) => {
             list.push(node)
+            console.log(list)
     }
 
     // prepend --> adds node to the beginnig of the list
     const prepend = (node) => {
             list.unshift(node)
+            console.log(list)
+    }
+
+    // pop --> removes the last element of the list
+    const pop = () => {
+        list.pop()
+        console.log(list)
     }
 
     // contains --> returns true if the passed value is in the list
@@ -28,7 +36,7 @@ const LinkedList = (list) => {
         }
     }
 
-    return {append,prepend,contains}
+    return {append,prepend,contains,pop}
 }
 
 // testing
@@ -44,10 +52,9 @@ const node1 = Node(4,7)
 const node2 = Node(8,5)
 
 linkedList1.append(node1.value) // [3,5,6,4]
-console.log(list1)
 linkedList1.prepend(node2.value) // [8,3,5,6,4]
-console.log(list1)
 linkedList1.contains(5) // Should return true
+linkedList1.pop() // [8,3,5,6]
 
 
 
