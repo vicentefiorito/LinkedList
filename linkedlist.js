@@ -19,18 +19,25 @@ const LinkedList = (list) => {
             console.log(list)
     }
 
+    // size --> returns the number of nodes in the list
+    const size = () => {
+        const _size = list.length
+        console.log('Size: ' + _size)
+        return _size
+    }
+
     // head --> returns the first node of the list
     const head = () => {
-        const headElement = list[0]
-        console.log('Head: ' + headElement)
-        return headElement
+        const _head = list[0]
+        console.log('Head: ' + _head)
+        return _head
     }
 
     // tail --> returns the last element of the list
     const tail = () => {
-        const tailElement = list[list.length - 1]
-        console.log('Tail: ' + tailElement)
-        return tailElement
+        const _tail = list[list.length - 1]
+        console.log('Tail: ' + _tail)
+        return _tail
     }
 
     // at --> returns the node at a given index
@@ -60,7 +67,25 @@ const LinkedList = (list) => {
         }
     }
 
-    return {append,prepend,contains,pop,at,head,tail}
+    // find --> returns the index of the node containing value, or null if not found
+    const find = (value) => {
+        const index = list.indexOf(value)
+        console.log(index)
+        return index
+    }
+
+    // toString --> stringifies the linked list 
+    const toString = () => {
+        let res = ''
+        for(i = 0; i < list.length; i++) {
+            res += '( value ) -> ' 
+        }
+        res += ' null'
+        console.log(res)
+        return res
+    }
+
+    return {append,prepend,contains,pop,at,head,tail,size,find,toString}
 }
 
 // testing
@@ -82,7 +107,9 @@ linkedList1.pop() // [8,3,5,6]
 linkedList1.at(4)
 linkedList1.head() // 8
 linkedList1.tail() // 6
-
+linkedList1.size() // 4
+linkedList1.find(3) //1
+linkedList1.toString()
 
 
 // console.log('Node Value --> ' + node1.value)
