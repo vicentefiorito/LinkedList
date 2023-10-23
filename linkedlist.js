@@ -19,6 +19,20 @@ const LinkedList = (list) => {
             console.log(list)
     }
 
+    // head --> returns the first node of the list
+    const head = () => {
+        const headElement = list[0]
+        console.log('Head: ' + headElement)
+        return headElement
+    }
+
+    // tail --> returns the last element of the list
+    const tail = () => {
+        const tailElement = list[list.length - 1]
+        console.log('Tail: ' + tailElement)
+        return tailElement
+    }
+
     // at --> returns the node at a given index
     const at = (index) => {
         // if the index is out of bounds of the current list
@@ -46,7 +60,7 @@ const LinkedList = (list) => {
         }
     }
 
-    return {append,prepend,contains,pop,at}
+    return {append,prepend,contains,pop,at,head,tail}
 }
 
 // testing
@@ -66,6 +80,8 @@ linkedList1.prepend(node2.value) // [8,3,5,6,4]
 linkedList1.contains(5) // Should return true
 linkedList1.pop() // [8,3,5,6]
 linkedList1.at(4)
+linkedList1.head() // 8
+linkedList1.tail() // 6
 
 
 
