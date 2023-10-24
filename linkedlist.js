@@ -13,14 +13,24 @@ class LinkedList {
       }
 
     // // append --> adds node to the end of the list
-    //  append = (value) => {
-    //     const node = Node(value, null);
-    //     console.log(node)
-    //     // looks for the last element of the list
-    //     current = list.nextNode
-    //     console.log(current)
-
-    //   };
+     append(value) {
+        // node to be inserted
+        const newNode = new Node(value)
+        // if the list is empty, sets the new node as the head
+        if(this.listHead === null){
+            this.listHead = newNode
+        } else {
+            let cur = this.listHead
+            // iterates through the list to find the last element
+            while(cur.nextNode !== null) {
+                cur = cur.nextNode
+            }
+            // inserts the new node after the last element
+            cur.nextNode = newNode
+            console.log(this.listHead)
+            
+        }
+      };
 
     // prepend --> adds value to the beginnig of the list
     prepend(value) {
@@ -32,6 +42,7 @@ class LinkedList {
         this.listHead = newNode
         console.log(this.listHead)
       }
+
     // // size --> returns the number of nodes in the list
     //  size = () => {
     //     const _size = list.length
@@ -105,8 +116,11 @@ class LinkedList {
 
 // empty list
 const linkedList = new LinkedList()
-linkedList.prepend(4) // 4 -> null
-linkedList.prepend(3) // 3 -> 4 -> null
+
+linkedList.append(3) // 3 -> null
+
+linkedList.prepend(4) // 4 -> 3 -> null
+
 
 
 
