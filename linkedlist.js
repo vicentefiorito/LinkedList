@@ -1,21 +1,30 @@
-// Node factory 
-const Node = (value,nextNode) => {
-    this.value = null
-    this.nextNode = null
-    return {value,nextNode}
+// Node class
+class Node {
+    constructor(value,nextNode) {
+        this.value = null
+        this.nextNode = null
+    } 
 }
 
 // Linked List function implementation
 const LinkedList = (list) => {
+    // current HEAD 
+    let HEAD = null
+
     // append --> adds node to the end of the list
     const append = (value) => {
-            list.push(value)
-            console.log(list)
-    }
+        const node = Node(value, null);
+        console.log(node)
+        // looks for the last element of the list
+        current = list.nextNode
+        console.log(current)
 
+      };
     // prepend --> adds value to the beginnig of the list
     const prepend = (value) => {
-            list.unshift(value)
+            const node = Node(value)
+            console.log(node)
+            node.nextNode = list[(value + 1)]
             console.log(list)
     }
 
@@ -78,7 +87,7 @@ const LinkedList = (list) => {
     const toString = () => {
         let res = ''
         for(i = 0; i < list.length; i++) {
-            res += '( value ) -> ' 
+            // res += '( ' + node.value + ' ) -> ' + ' ( ' + node.nextNode + ' ) ->' 
         }
         res += ' null'
         console.log(res)
@@ -91,25 +100,15 @@ const LinkedList = (list) => {
 // testing
 
 // initial array
-const list1 = [3,5,6]
+const list = new Node()
+const linkedList = LinkedList(list)
+// linkedList.append(4) // 4 -> null
+// linkedList.append(3) // 4 -> 3 -> null
+console.log(list)
+// linkedList.prepend(0) // 0 -> 4 -> null
+// linkedList.prepend(3) // 3 -> 0 -> 4 -> null
+// linkedList.toString()
 
-// generating Linked List
-const linkedList1 = LinkedList(list1)
-
-// test Nodes
-const node1 = Node(4,7)
-const node2 = Node(8,5)
-
-linkedList1.append(node1.value) // [3,5,6,4]
-linkedList1.prepend(node2.value) // [8,3,5,6,4]
-linkedList1.contains(5) // Should return true
-linkedList1.pop() // [8,3,5,6]
-linkedList1.at(4)
-linkedList1.head() // 8
-linkedList1.tail() // 6
-linkedList1.size() // 4
-linkedList1.find(3) //1
-linkedList1.toString()
 
 
 // console.log('Node Value --> ' + node1.value)
