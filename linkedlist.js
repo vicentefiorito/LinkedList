@@ -114,12 +114,25 @@ class LinkedList {
         return false
     }
 
-    // // find --> returns the index of the node containing value, or null if not found
-    // const find = (value) => {
-    //     const index = list.indexOf(value)
-    //     console.log(index)
-    //     return index
-    // }
+    // find --> returns the index of the node containing value, or null if not found
+    find(value) {
+        // sets current head
+        let cur = this.listHead
+        let index = 0 
+        // iterates through the list
+        while(cur !== null) {
+            // if the value is found, return the index
+            if(cur.value === value) {
+                console.log('Node with value: ' + value + ' was found at index: ' + index)
+                return index
+            }
+            cur = cur.nextNode
+            index++
+        }
+        // if the value is not found in the list
+        console.log('Value was not found in the list')
+        return null
+    }
 
     // toString --> stringifies the linked list 
     toString() {
@@ -151,7 +164,8 @@ linkedList.head()//Node -> value:5, nextNode:{Node:value:4, nextNode}
 linkedList.tail() // 3
 linkedList.at(0) // 5
 linkedList.pop() // pop 3, list should be 5->4->null
-linkedList.contains(4) //False
+linkedList.contains(4) //True
+linkedList.find(5)
 linkedList.toString()
 
 
