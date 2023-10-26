@@ -173,6 +173,31 @@ class LinkedList {
 
     }
 
+    // removeAt(index) that removes the node at the given index.
+    removeAt(index){
+        // if the list is empty
+        if(this.listHead === null){
+            console.log('Can"t remove from empty list')
+            return
+        } else {
+            // gets the current head
+            let cur = this.listHead
+            let prev = null
+
+            // iterates until the index is found
+            for(let i=0; i<index;i++) {
+                prev = cur
+                cur = cur.nextNode
+                // if the index is outside of the size of the list
+                if(cur === null){
+                    console.log('No item for this index was found!')
+                }
+            }
+            // skip over the current node, as we are trying to delete it at the index.
+            prev.nextNode = cur.nextNode
+        }
+    }
+
 
 }
 
@@ -192,12 +217,6 @@ linkedList.pop() // pop 3, list should be 5->4->null
 linkedList.contains(4) //True
 linkedList.find(5)
 linkedList.insertAt(7,3) // 5 -> 4 -> 7 -> null
+linkedList.removeAt(2)
 linkedList.toString()
 
-
-
-
-
-
-// console.log('Node Value --> ' + node1.value)
-// console.log('Node next pointer --> ' + node1.nextNode)
