@@ -10,6 +10,7 @@ class Node {
 class LinkedList {
     constructor() {
         this.listHead = null;
+        this._size = 0
       }
 
     // // append --> adds node to the end of the list
@@ -19,6 +20,7 @@ class LinkedList {
         // if the list is empty, sets the new node as the head
         if(this.listHead === null){
             this.listHead = newNode
+            this._size++
         } else {
             let cur = this.listHead
             // iterates through the list to find the last element
@@ -27,6 +29,7 @@ class LinkedList {
             }
             // inserts the new node after the last element
             cur.nextNode = newNode
+            this._size++
             console.log(this.listHead)
             
         }
@@ -40,15 +43,15 @@ class LinkedList {
         newNode.nextNode = this.listHead
         // sets the new node as the head
         this.listHead = newNode
+        this._size++
         console.log(this.listHead)
       }
 
     // // size --> returns the number of nodes in the list
-    //  size = () => {
-    //     const _size = list.length
-    //     console.log('Size: ' + _size)
-    //     return _size
-    // }
+     size = () => {
+        console.log('Size: ' + this._size)
+        return this._size
+    }
 
     // // head --> returns the first node of the list
     // const head = () => {
@@ -120,6 +123,9 @@ const linkedList = new LinkedList()
 linkedList.append(3) // 3 -> null
 
 linkedList.prepend(4) // 4 -> 3 -> null
+linkedList.prepend(5) // 5 -> 4 -> 3 -> null
+linkedList.prepend(2)
+linkedList.size() // Size: 3
 
 
 
