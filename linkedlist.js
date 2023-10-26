@@ -70,15 +70,18 @@ class LinkedList {
         console.log('Tail: ' + _tail.value)
     }
 
-    // // at --> returns the node at a given index
-    // const at = (index) => {
-    //     // if the index is out of bounds of the current list
-    //     if(index >= list.length) {
-    //         console.log('Index is out of bounds of the array')
-    //     } else {
-    //         console.log(list[index])
-    //     }
-    // }
+    // at --> returns the node at a given index
+    at(index) {
+        // start at the head of the list
+        let cur = this.listHead
+        // iterates until the index
+        for(let i = 0; i < index; i++) {
+            cur = cur.nextNode
+            // if the item doesn't exist in the list
+            if(cur === null) console.log('Item does not exist in the list')
+        }
+        console.log('Node at: ' + index + ' is: ' + cur.value)
+    }
 
     // // pop --> removes the last element of the list
     // const pop = () => {
@@ -124,12 +127,12 @@ class LinkedList {
 const linkedList = new LinkedList()
 
 linkedList.append(3) // 3 -> null
-
 linkedList.prepend(4) // 4 -> 3 -> null
 linkedList.prepend(5) // 5 -> 4 -> 3 -> null
 linkedList.size() // Size: 3
 linkedList.head()//Node -> value:5, nextNode:{Node:value:4, nextNode}
 linkedList.tail() // 3
+linkedList.at(0)
 
 
 
