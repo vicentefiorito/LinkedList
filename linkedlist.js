@@ -30,8 +30,6 @@ class LinkedList {
             // inserts the new node after the last element
             cur.nextNode = newNode
             this._size++
-            console.log(this.listHead)
-            
         }
       };
 
@@ -44,7 +42,6 @@ class LinkedList {
         // sets the new node as the head
         this.listHead = newNode
         this._size++
-        console.log(this.listHead)
       }
 
     // size --> returns the number of nodes in the list
@@ -83,11 +80,21 @@ class LinkedList {
         console.log('Node at: ' + index + ' is: ' + cur.value)
     }
 
-    // // pop --> removes the last element of the list
-    // const pop = () => {
-    //     list.pop()
-    //     console.log(list)
-    // }
+    // pop --> removes the last element of the list
+    pop() {
+        // set to the current list head
+        cur = this.listHead
+        // set to the previous node, in this case null
+        prev = null
+        // iterates through the list to find the last element
+        while(cur.nextNode !== null) {
+            prev = cur
+            cur = cur.nextNode
+        }
+        // after iterating, delete the node by setting the next node of the previous to be null
+        prev.nextNode = null
+
+    }
 
     // // contains --> returns true if the passed value is in the list
     // const contains = (value) => {
@@ -107,16 +114,19 @@ class LinkedList {
     //     return index
     // }
 
-    // // toString --> stringifies the linked list 
-    // const toString = () => {
-    //     let res = ''
-    //     for(i = 0; i < list.length; i++) {
-    //         // res += '( ' + node.value + ' ) -> ' + ' ( ' + node.nextNode + ' ) ->' 
-    //     }
-    //     res += ' null'
-    //     console.log(res)
-    //     return res
-    // }
+    // toString --> stringifies the linked list 
+    toString() {
+        let list = ''
+        let cur = this.listHead
+        while(cur.nextNode !== null) {
+            list += '(' + cur.value + ')' + ' -> '
+            cur = cur.nextNode
+        }
+        // adds the last null at the end to signify the end of the list
+        list += '(' + cur.value + ')' + ' -> ' + 'null'
+        console.log(list)
+        return list
+    }
 
 
 }
@@ -133,6 +143,7 @@ linkedList.size() // Size: 3
 linkedList.head()//Node -> value:5, nextNode:{Node:value:4, nextNode}
 linkedList.tail() // 3
 linkedList.at(0)
+linkedList.toString()
 
 
 
