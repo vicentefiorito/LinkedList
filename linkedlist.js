@@ -148,6 +148,31 @@ class LinkedList {
         return list
     }
 
+    // insertAt(value, index) that inserts a new node with the provided value at the given index.
+    insertAt(value,index) {
+        // if list is empty, add to the beginning
+        if(this.listHead === null){
+            this.prepend(value)
+        } else{
+            let cur = this.listHead
+            let prev = null
+            // find where the new node is going to be inserted
+            for(let i=0;i<index;i++){
+                prev = cur
+                cur = cur.nextNode
+                // if the index is too big for the current list just append at the end
+                if(cur === null){
+                    break;
+                }
+            }
+            // after finding the index, update pointers and insert new node
+            let node = new Node(value)
+            prev.nextNode = node
+            node.nextNode = cur
+        }
+
+    }
+
 
 }
 
@@ -166,6 +191,7 @@ linkedList.at(0) // 5
 linkedList.pop() // pop 3, list should be 5->4->null
 linkedList.contains(4) //True
 linkedList.find(5)
+linkedList.insertAt(7,3) // 5 -> 4 -> 7 -> null
 linkedList.toString()
 
 
