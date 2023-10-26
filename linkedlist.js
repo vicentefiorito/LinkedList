@@ -59,12 +59,16 @@ class LinkedList {
         return this.listHead
     }
 
-    // // tail --> returns the last element of the list
-    // const tail = () => {
-    //     const _tail = list[list.length - 1]
-    //     console.log('Tail: ' + _tail)
-    //     return _tail
-    // }
+    // tail --> returns the last element of the list
+    tail(){
+        // sets tail to the current head
+        let _tail = this.listHead
+        // iterates through the list to find the element that has a null nextNode, making it the last element of the list
+        while(_tail.nextNode !== null) {
+            _tail = _tail.nextNode
+        }
+        console.log('Tail: ' + _tail.value)
+    }
 
     // // at --> returns the node at a given index
     // const at = (index) => {
@@ -125,6 +129,7 @@ linkedList.prepend(4) // 4 -> 3 -> null
 linkedList.prepend(5) // 5 -> 4 -> 3 -> null
 linkedList.size() // Size: 3
 linkedList.head()//Node -> value:5, nextNode:{Node:value:4, nextNode}
+linkedList.tail() // 3
 
 
 
