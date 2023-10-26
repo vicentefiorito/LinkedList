@@ -83,9 +83,9 @@ class LinkedList {
     // pop --> removes the last element of the list
     pop() {
         // set to the current list head
-        cur = this.listHead
+        let cur = this.listHead
         // set to the previous node, in this case null
-        prev = null
+        let prev = null
         // iterates through the list to find the last element
         while(cur.nextNode !== null) {
             prev = cur
@@ -96,16 +96,23 @@ class LinkedList {
 
     }
 
-    // // contains --> returns true if the passed value is in the list
-    // const contains = (value) => {
-    //     if(list.includes(value)) {
-    //         console.log('Node: ' + value + ' is in the list')
-    //         return true
-    //     } else {
-    //         console.log('Node: ' + value + ' is not in the list')
-    //         return false
-    //     }
-    // }
+    // contains --> returns true if the passed value is in the list
+    contains(value) {
+        // sets to the current head
+        let cur = this.listHead
+        // iterate through the list
+        while(cur !== null) {
+            // checks to see if the value of the current node is the target
+            if(cur.value === value) {
+                console.log("Value has been found")
+                return true
+            }
+            cur = cur.nextNode
+        }
+        // return false otherwise
+        console.log("Value is not in the list")
+        return false
+    }
 
     // // find --> returns the index of the node containing value, or null if not found
     // const find = (value) => {
@@ -118,12 +125,12 @@ class LinkedList {
     toString() {
         let list = ''
         let cur = this.listHead
-        while(cur.nextNode !== null) {
+        while(cur !== null) {
             list += '(' + cur.value + ')' + ' -> '
             cur = cur.nextNode
         }
         // adds the last null at the end to signify the end of the list
-        list += '(' + cur.value + ')' + ' -> ' + 'null'
+        list +='null'
         console.log(list)
         return list
     }
@@ -142,7 +149,9 @@ linkedList.prepend(5) // 5 -> 4 -> 3 -> null
 linkedList.size() // Size: 3
 linkedList.head()//Node -> value:5, nextNode:{Node:value:4, nextNode}
 linkedList.tail() // 3
-linkedList.at(0)
+linkedList.at(0) // 5
+linkedList.pop() // pop 3, list should be 5->4->null
+linkedList.contains(4) //False
 linkedList.toString()
 
 
