@@ -10,7 +10,7 @@ class Node {
 class LinkedList {
     constructor() {
         this.listHead = null;
-        this._size = 0
+        this._size = 0 //size for an empty list
       }
 
     // // append --> adds node to the end of the list
@@ -47,18 +47,17 @@ class LinkedList {
         console.log(this.listHead)
       }
 
-    // // size --> returns the number of nodes in the list
-     size = () => {
+    // size --> returns the number of nodes in the list
+     size() {
         console.log('Size: ' + this._size)
         return this._size
     }
 
-    // // head --> returns the first node of the list
-    // const head = () => {
-    //     const _head = list[0]
-    //     console.log('Head: ' + _head)
-    //     return _head
-    // }
+    // head --> returns the first node of the list
+    head () {
+        console.log('Head--> value: ' + this.listHead.value + ' nextNode: ' + this.listHead.nextNode)
+        return this.listHead
+    }
 
     // // tail --> returns the last element of the list
     // const tail = () => {
@@ -124,8 +123,8 @@ linkedList.append(3) // 3 -> null
 
 linkedList.prepend(4) // 4 -> 3 -> null
 linkedList.prepend(5) // 5 -> 4 -> 3 -> null
-linkedList.prepend(2)
 linkedList.size() // Size: 3
+linkedList.head()//Node -> value:5, nextNode:{Node:value:4, nextNode}
 
 
 
