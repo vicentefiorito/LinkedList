@@ -12,8 +12,6 @@ class LinkedList {
         this.listHead = null;
         this._size = 0 //size for an empty list
       }
-
-    // // append --> adds node to the end of the list
      append(value) {
         // node to be inserted
         const newNode = new Node(value)
@@ -33,7 +31,6 @@ class LinkedList {
         }
       };
 
-    // prepend --> adds value to the beginnig of the list
     prepend(value) {
         // creates new node
         const newNode = new Node(value)
@@ -44,19 +41,16 @@ class LinkedList {
         this._size++
       }
 
-    // size --> returns the number of nodes in the list
-     size() {
+    size() {
         console.log('Size: ' + this._size)
         return this._size
     }
 
-    // head --> returns the first node of the list
     head () {
         console.log('Head--> value: ' + this.listHead.value + ' nextNode: ' + this.listHead.nextNode)
         return this.listHead
     }
 
-    // tail --> returns the last element of the list
     tail(){
         // sets tail to the current head
         let _tail = this.listHead
@@ -67,7 +61,6 @@ class LinkedList {
         console.log('Tail: ' + _tail.value)
     }
 
-    // at --> returns the node at a given index
     at(index) {
         // start at the head of the list
         let cur = this.listHead
@@ -80,7 +73,6 @@ class LinkedList {
         console.log('Node at: ' + index + ' is: ' + cur.value)
     }
 
-    // pop --> removes the last element of the list
     pop() {
         // set to the current list head
         let cur = this.listHead
@@ -96,7 +88,6 @@ class LinkedList {
 
     }
 
-    // contains --> returns true if the passed value is in the list
     contains(value) {
         // sets to the current head
         let cur = this.listHead
@@ -114,7 +105,6 @@ class LinkedList {
         return false
     }
 
-    // find --> returns the index of the node containing value, or null if not found
     find(value) {
         // sets current head
         let cur = this.listHead
@@ -134,7 +124,6 @@ class LinkedList {
         return null
     }
 
-    // toString --> stringifies the linked list 
     toString() {
         let list = ''
         let cur = this.listHead
@@ -148,7 +137,6 @@ class LinkedList {
         return list
     }
 
-    // insertAt(value, index) that inserts a new node with the provided value at the given index.
     insertAt(value,index) {
         // if list is empty, add to the beginning
         if(this.listHead === null){
@@ -173,7 +161,6 @@ class LinkedList {
 
     }
 
-    // removeAt(index) that removes the node at the given index.
     removeAt(index){
         // if the list is empty
         if(this.listHead === null){
@@ -202,7 +189,6 @@ class LinkedList {
 }
 
 // testing
-
 // empty list
 const linkedList = new LinkedList()
 
@@ -217,6 +203,8 @@ linkedList.pop() // pop 3, list should be 5->4->null
 linkedList.contains(4) //True
 linkedList.find(5)
 linkedList.insertAt(7,3) // 5 -> 4 -> 7 -> null
+linkedList.insertAt(6,2)
+linkedList.toString()
 linkedList.removeAt(2)
 linkedList.toString()
 
